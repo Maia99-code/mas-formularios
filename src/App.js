@@ -1,42 +1,47 @@
-import './App.css';
-import { useState } from 'react';
-import Forms from './components/Forms';
+import "./App.css";
+import { useState } from "react";
+import Forms from "./components/Forms";
 
 function App() {
-  const [datos, setDatos] = useState({
-    nombre: '',
-    edad: '',
-    email: ''
+  const [data, setData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
   });
 
-  const handleChange = e => {
-    setDatos({
-      ...datos,
-      [e.target.name]: e.target.value
+  const handleChange = (e) => {
+    setData({
+      ...data,
+      [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(datos);
+    console.log(data);
   };
-
 
   return (
     <div>
-      <Forms 
-      handleSubmit = {handleSubmit}
-      handleChange = {handleChange}
-      datos = {datos}
+      <Forms
+        handleSubmit={handleSubmit}
+        handleChange={handleChange}
+        data={data}
       />
 
-      <h2>Datos ingresados:</h2>
-      <p>Nombre: {datos.nombre}</p>
-      <p>Edad: {datos.edad}</p>
-      <p>Email: {datos.email}</p>
+      <div className="data--text">
+        <h2>Your Form Data:</h2>
+        <div>
+          <p> <span>First Name: </span> {data.firstName}</p>
+          <p> <span>Last Name:</span>  {data.lastName}</p>
+          <p> <span>Email:</span> {data.email}</p>
+          <p> <span>Password:</span> {data.password} </p>
+          <p> <span>Confirm Password:</span> {data.confirmPassword}</p>
+        </div>
+      </div>
     </div>
   );
-
 }
 export default App;
-

@@ -1,23 +1,36 @@
-export default function Forms({handleChange, handleSubmit, datos}) {
+export default function Forms({handleChange, handleSubmit, data}) {
     
     return(
-        <div>
-      <h2>Formulario</h2>
+        <div className="form-container">
+      <h2>Formulario con Hooks</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Nombre:</label>
-          <input type="text" name="nombre" value={datos.nombre} onChange={handleChange} />
+          <label>First Name
+          <input type="text" name="firstName" value={data.firsName} onChange={handleChange} />
+          </label>
         </div>
         <div>
-          <label>Edad:</label>
-          <input type="number" name="edad" value={datos.edad} onChange={handleChange} />
+          <label>Last Name
+          <input type="text" name="lastName" value={data.lastName} onChange={handleChange} />
+          </label>
         </div>
         <div>
-          <label>Email:</label>
-          <input type="email" name="email" value={datos.email} onChange={handleChange} />
+          <label>Email
+          <input type="email" name="email" value={data.email} onChange={handleChange} />
+          </label>
         </div>
-        <button type="submit">Enviar</button>
+        <div>
+          <label>Password
+          <input type="password" name="password" value={data.password} onChange={handleChange} />
+          </label>
+        </div>
+        <div>
+          <label>Confirm your password
+          <input type="password" name="confirmPassword" value={data.confirmPassword} onChange={handleChange} />
+          </label>
+        </div>
       </form>
+        <button type="submit">Enviar</button>
       </div>
     )
 }
